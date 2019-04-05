@@ -6,4 +6,9 @@ export const createNote = (note) => ({
 export const getNotes = (notes) => ({
   type: 'GET_NOTES',
   notes
-})
+});
+
+export const isLoading = (boolean) => ({
+  type: 'IS_LOADING',
+  isLoading: boolean
+});
