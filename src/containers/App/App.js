@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from '../Input/Input';
 import { fetchNotes } from '../../thunks/fetchNotes';
 import { connect } from 'react-redux';
+import Loading from '../../components/Loading/Loading';
 
 export class App extends Component {
   constructor() {
@@ -44,13 +45,18 @@ handleTitleChange = (e) => {
         />
         <Input createNewItem={this.createNewItem} />
         {mappedState}
+        {this.props.loading && <Loading />}
       </div>
     );
   }
 }
 
+export const mapStateToProps = (state) => ({
+  loading: state.isLoading,
+});
+
 export const mapDispatchToProps = (dispatch) => ({
   fetchNotes: (url) => dispatch(fetchNotes(url))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
