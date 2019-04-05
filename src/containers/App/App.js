@@ -35,9 +35,7 @@ handleTitleChange = (e) => {
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
-
         <Input createNewItem={this.createNewItem} />
-        
         {mappedState}
       </div>
     );
