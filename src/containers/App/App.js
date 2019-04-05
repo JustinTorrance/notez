@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Input from '../Input/Input'
+import Input from '../Input/Input';
+import { fetchNotes } from '../../thunks/fetchNotes';
+import { connect } from 'react-redux';
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -10,6 +12,11 @@ class App extends Component {
       body: []
     }
   }
+
+componentDidMount() {
+  const url = 'http://localhost:3001/api/v1/notes';
+  this.props.fetchNotes(url)
+}
 
 createNewItem = (text) => {
   const newListItem = { id: Date.now(), text}
@@ -42,4 +49,8 @@ handleTitleChange = (e) => {
   }
 }
 
-export default App;
+export const mapDispatchToProps = (dispatch) => ({
+  fetchNotes: (url) => dispatch(fetchNotes(url))
+});
+
+export default connect(null, mapDispatchToProps)(App);

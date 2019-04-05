@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { createNoteReducer } from './createNoteReducer';
+import { notesReducer } from './createNoteReducer';
 
-const rootReducer = combineReducers => ({
-  notes: createNoteReducer
+const rootReducer = combineReducers({
+  notes: notesReducer
 });
 
 export default rootReducer;
