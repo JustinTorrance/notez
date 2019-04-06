@@ -8,16 +8,16 @@ export class NewNote extends Component {
     this.state = {
       inputs: [],
       title: '',
-      body: []
+      listItems: []
     }
   }
 
   createNewItem = (text) => {
     const newListItem = { id: Date.now(), text}
     const newInput =  <Input key={Date.now()} createNewItem={this.createNewItem} />
-    const body = [...this.state.body, newListItem]
+    const listItems = [...this.state.listItems, newListItem]
     const inputs = [...this.state.inputs, newInput]
-    this.setState({ body, inputs })
+    this.setState({ listItems, inputs })
   }
   
   handleTitleChange = (e) => {

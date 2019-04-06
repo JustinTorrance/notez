@@ -13,7 +13,7 @@ export class CardContainer extends Component {
   render() {
 
     const noteCards = this.props.notes.map(note => {
-      return <Card key={note.id} title={note.title} text={note.body}/>
+      return <Card key={note.id} title={note.title} text={note.listItems}/>
     })
 
     return(
