@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Input from '../Input/Input';
-
+import { connect } from 'react-redux';
+import { addNote } from '../../thunks/addNote'
 
 export class NewNote extends Component {
   constructor() {
@@ -13,7 +14,7 @@ export class NewNote extends Component {
   }
 
 //add save button
-//onclick, save button dispatches thunk, passing in title,body
+//onclick, save button dispatches thunk, passing in title,listItems
 //thunk is post request to backend
 
   createNewItem = (text) => {
@@ -30,7 +31,9 @@ export class NewNote extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    //dispath thunk here
+    const url = 'http://localhost:3001/api/v1/notes'
+    const { title, listItems } = this.state
+    this.props.addNote(url, {title, listItems})
   }
 
   render() {
@@ -52,4 +55,8 @@ export class NewNote extends Component {
   }
 }
 
-export default NewNote;
+export const mapDispatchToProps = (dispatch) => ({
+  addNote: (url, newNote) => dispatch(addNote(url, newNote))
+})
+
+export default connect(null, mapDispatchToProps)(NewNote);

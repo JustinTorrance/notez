@@ -2,15 +2,19 @@ export const addNote = (url, newNote) => {
   return async (dispatch) => {
     const options = {
       method: "POST",
-      header: {
+      body: JSON.stringify(newNote),
+      headers: {
         "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newNote)
+      }
     }
     try {
       const response = await fetch(url, options)
-      const data = await response.json()
-      console.log('data', data)
+      if (!response.ok) {
+        throw new Error
+      } else {
+        const data = await response.json()
+        return data
+      }
     } catch(error) {
       console.log(error)
     }
