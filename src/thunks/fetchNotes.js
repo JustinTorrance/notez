@@ -1,4 +1,4 @@
-import { getNotes, isLoading } from '../actions';
+import { getNotes, isLoading, fetchErrored } from '../actions';
 
 export const fetchNotes = (url) => {
   return async (dispatch) => {
@@ -9,7 +9,7 @@ export const fetchNotes = (url) => {
       dispatch(getNotes(notes));
       dispatch(isLoading(false));
     } catch(error) {
-      console.log(error)
+      dispatch(fetchErrored(error.message));
     }
   }
 }
