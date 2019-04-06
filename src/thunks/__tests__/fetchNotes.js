@@ -10,8 +10,8 @@ describe('fetchNotes', () => {
     mockUrl = 'www.somenotes.com';
     mockDispatch = jest.fn();
     mockNotes = [
-      { id: '1', title: 'fakeTitle', body: [{id: 1, text: 'faketext'}] },
-      { id: '2', title: 'fakeTitle2', body: [{id: 2, text: 'faketext2'}] }
+      { id: '1', title: 'fakeTitle', listItems: [{id: 1, text: 'faketext'}] },
+      { id: '2', title: 'fakeTitle2', listItems: [{id: 2, text: 'faketext2'}] }
     ];
   });
 
