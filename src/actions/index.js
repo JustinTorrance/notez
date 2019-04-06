@@ -12,3 +12,8 @@ export const isLoading = (boolean) => ({
   type: 'IS_LOADING',
   isLoading: boolean
 });
+
+export const fetchErrored = (message) => ({
+  type: 'FETCH_ERRORED',
+  message
+});
