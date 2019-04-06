@@ -12,6 +12,10 @@ export class NewNote extends Component {
     }
   }
 
+//add save button
+//onclick, save button dispatches thunk, passing in title,body
+//thunk is post request to backend
+
   createNewItem = (text) => {
     const newListItem = { id: Date.now(), text}
     const newInput =  <Input key={Date.now()} createNewItem={this.createNewItem} />
@@ -24,12 +28,17 @@ export class NewNote extends Component {
     this.setState({ title: e.target.value })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    //dispath thunk here
+  }
+
   render() {
     const mappedState = this.state.inputs.map(form => {
       return form
     })
     return(
-      <div>
+      <form>
         <input type="text"
           placeholder='title'
           value={this.state.title}
@@ -37,11 +46,10 @@ export class NewNote extends Component {
         />
         <Input createNewItem={this.createNewItem} />
         {mappedState}
-      </div>
+        <button type="submit" onClick={this.handleSubmit}>Submit</button>
+      </form>
     )
   }
-
-
 }
 
 export default NewNote;
