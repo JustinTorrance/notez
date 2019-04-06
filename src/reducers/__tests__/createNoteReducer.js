@@ -11,7 +11,10 @@ describe('notesReducer', () => {
   });
 
   it('should return state with a new note added', () => {
-
+    const note = { id: '1', title: 'title', listItems: [{ id: '2', text: 'text'}] };
+    const action = actions.createNote(note);
+    const results = notesReducer(state, action);
+    expect(results).toEqual([note]);
   });
 
   it('should return state with all of the notes', () => {
