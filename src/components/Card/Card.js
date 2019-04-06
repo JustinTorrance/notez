@@ -3,8 +3,13 @@ import React, { Component } from 'react';
 class Card extends Component {
   
   displayNoteText = () => {
-    return this.props.text.map(note => {
-        return note.text
+    return this.props.listItems.map(listItem => {
+      return (
+        <div>
+          <li>{listItem.text}</li>
+          <button>DELETE</button>
+        </div>
+      )
     })
   }
 
@@ -12,7 +17,7 @@ class Card extends Component {
     return (
       <div className='Card'>
         <h3>{this.props.title}</h3>
-        <li>{this.displayNoteText()}</li>
+        {this.displayNoteText()}
       </div>
     )
   }
