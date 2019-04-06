@@ -1,5 +1,5 @@
 import { fetchNotes } from '../fetchNotes';
-import { getNotes, isLoading } from '../../actions';
+import { getNotes, isLoading, fetchErrored } from '../../actions';
 
 describe('fetchNotes', () => {
   let mockUrl;
@@ -30,6 +30,16 @@ describe('fetchNotes', () => {
     await thunk(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(getNotes(mockNotes));
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false));
+  });
+
+  it('calls dispatch with fetchErrored if the response is not okay', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false,
+      statusText: 'There was a problem retrieving the data'
+    }));
+    const thunk = await fetchNotes(mockUrl);
+    await thunk(mockDispatch);
+    expect(mockDispatch).toHaveBeenCalledWith(fetchErrored('There was a problem retrieving the data'));
   });
 
 });

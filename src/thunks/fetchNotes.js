@@ -5,6 +5,9 @@ export const fetchNotes = (url) => {
     try {
       dispatch(isLoading(true));
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(response.statusText)
+      }
       const notes = await response.json();
       dispatch(getNotes(notes));
       dispatch(isLoading(false));
