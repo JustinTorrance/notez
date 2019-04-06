@@ -18,7 +18,12 @@ describe('notesReducer', () => {
   });
 
   it('should return state with all of the notes', () => {
-    
+    const notes = [
+      { id: '1', title: 'title', listItems: [{ id: '2', text: 'text'}] },
+      { id: '2', title: 'title', listItems: [{ id: '3', text: 'text'}] }
+  ]; 
+    const action = actions.getNotes(notes);
+    const result = notesReducer(state, action);
+    expect(result).toEqual(notes);
   });
-
 });
