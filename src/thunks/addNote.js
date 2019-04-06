@@ -1,3 +1,5 @@
+import { fetchErrored, getNotes } from '../actions'
+
 export const addNote = (url, newNote) => {
   return async (dispatch) => {
     const options = {
@@ -10,14 +12,15 @@ export const addNote = (url, newNote) => {
     try {
       const response = await fetch(url, options)
       if (!response.ok) {
-        throw new Error
+        throw new Error(response.statusText)
       } else {
         const data = await response.json()
         return data
       }
     } catch(error) {
-      console.log(error)
+      dispatch(fetchErrored(error.message))
     }
   }
 }
 
+ 
