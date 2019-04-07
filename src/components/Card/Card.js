@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
 
-class Card extends Component {
+export class Card extends Component {
   
   displayNoteText = () => {
     return this.props.listItems.map(listItem => {
@@ -17,7 +17,6 @@ class Card extends Component {
 
   deleteNote = (e) => {
     const { value } = e.target;
-    console.log(value)
     const url = `http://localhost:3001/api/v1/notes/${value}`;
     this.props.deleteNote(url, value)
   }

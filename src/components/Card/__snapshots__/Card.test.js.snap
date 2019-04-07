@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`deleteNote should match snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    deleteNote={[Function]}
+    id="1"
+    listItems={
+      Array [
+        Object {
+          "id": "1",
+          "listItems": Array [
+            Object {
+              "id": 1,
+              "text": "faketext",
+            },
+          ],
+          "title": "fakeTitle",
+        },
+        Object {
+          "id": "2",
+          "listItems": Array [
+            Object {
+              "id": 2,
+              "text": "faketext2",
+            },
+          ],
+          "title": "fakeTitle2",
+        },
+      ]
+    }
+    title="mockTitle"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          mockTitle
+        </h3>,
+        Array [
+          <div>
+            <li />
+            <button>
+              DELETE LIST-ITEM
+            </button>
+          </div>,
+          <div>
+            <li />
+            <button>
+              DELETE LIST-ITEM
+            </button>
+          </div>,
+        ],
+        <button
+          onClick={[Function]}
+          value="1"
+        >
+          DELETE NOTE
+        </button>,
+      ],
+      "className": "Card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "mockTitle",
+        },
+        "ref": null,
+        "rendered": "mockTitle",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li />,
+            <button>
+              DELETE LIST-ITEM
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "DELETE LIST-ITEM",
+            },
+            "ref": null,
+            "rendered": "DELETE LIST-ITEM",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <li />,
+            <button>
+              DELETE LIST-ITEM
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "li",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "DELETE LIST-ITEM",
+            },
+            "ref": null,
+            "rendered": "DELETE LIST-ITEM",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "DELETE NOTE",
+          "onClick": [Function],
+          "value": "1",
+        },
+        "ref": null,
+        "rendered": "DELETE NOTE",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            mockTitle
+          </h3>,
+          Array [
+            <div>
+              <li />
+              <button>
+                DELETE LIST-ITEM
+              </button>
+            </div>,
+            <div>
+              <li />
+              <button>
+                DELETE LIST-ITEM
+              </button>
+            </div>,
+          ],
+          <button
+            onClick={[Function]}
+            value="1"
+          >
+            DELETE NOTE
+          </button>,
+        ],
+        "className": "Card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "mockTitle",
+          },
+          "ref": null,
+          "rendered": "mockTitle",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li />,
+              <button>
+                DELETE LIST-ITEM
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "DELETE LIST-ITEM",
+              },
+              "ref": null,
+              "rendered": "DELETE LIST-ITEM",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li />,
+              <button>
+                DELETE LIST-ITEM
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "DELETE LIST-ITEM",
+              },
+              "ref": null,
+              "rendered": "DELETE LIST-ITEM",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "DELETE NOTE",
+            "onClick": [Function],
+            "value": "1",
+          },
+          "ref": null,
+          "rendered": "DELETE NOTE",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
