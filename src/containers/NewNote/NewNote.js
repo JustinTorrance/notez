@@ -18,7 +18,7 @@ export class NewNote extends Component {
 //thunk is post request to backend
 
   createNewItem = (text) => {
-    const newListItem = { id: Date.now(), text}
+    const newListItem = { id: Date.now(), text, completed: false }
     const newInput =  <Input key={Date.now()} createNewItem={this.createNewItem} />
     const listItems = [...this.state.listItems, newListItem]
     const inputs = [...this.state.inputs, newInput]
