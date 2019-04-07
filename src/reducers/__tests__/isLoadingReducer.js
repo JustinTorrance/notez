@@ -14,5 +14,5 @@ describe('isLoadingReducer', () => {
     const action = actions.isLoading(boolean);
     const results = isLoadingReducer(state, action);
     expect(results).toEqual(boolean);
-  })
+  });
 });
