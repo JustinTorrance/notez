@@ -17,3 +17,8 @@ export const fetchErrored = (message) => ({
   type: 'FETCH_ERRORED',
   message
 });
+
+export const deleteNoteAction = (id) => ({
+  type: 'DELETE_NOTE',
+  id
+})
