@@ -1,4 +1,4 @@
-import { fetchErrored, getNotes } from '../actions'
+import { fetchErrored } from '../actions'
 
 export const addNote = (url, newNote) => {
   return async (dispatch) => {
