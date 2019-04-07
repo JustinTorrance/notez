@@ -2,7 +2,7 @@ import { notesReducer } from '../createNoteReducer';
 import * as actions from '../../actions';
 
 describe('notesReducer', () => {
-  const state = [];
+  let state = [];
 
   it('should return state by default', () => {
     const action = {};
@@ -25,5 +25,20 @@ describe('notesReducer', () => {
     const action = actions.getNotes(notes);
     const result = notesReducer(state, action);
     expect(result).toEqual(notes);
+  });
+
+  it('should return updated state when note is deleted', () => {
+    state = [
+      { id: '1', title: 'title', listItems: [{ id: '2', text: 'text'}] },
+      { id: '2', title: 'title', listItems: [{ id: '2', text: 'text'}] }
+
+  ];
+    const updatedState = [
+      { id: '2', title: 'title', listItems: [{ id: '2', text: 'text'}] }
+    ]
+    const id = '1';
+    const action = actions.deleteNoteAction(id);
+    const result = notesReducer(state, action);
+    expect(result).toEqual(updatedState);
   });
 });
