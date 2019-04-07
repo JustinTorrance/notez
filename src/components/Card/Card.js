@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
+import { toggleCompleted } from '../../actions';
 
 class Card extends Component {
   
@@ -11,7 +12,8 @@ class Card extends Component {
           <li>
             <input
               type="checkbox"
-              onChange={this.findId}
+              onChange={this.isolateListItemId}
+              id={listItem.id}
             />
             {listItem.text}
           </li>
@@ -21,21 +23,13 @@ class Card extends Component {
     })
   }
 
-  findId = (e) => {
-    console.log(this.props.listItems)
-    console.log(e.target)
-    // this.handleChecked(id)
+  isolateListItemId = (e) => {
+    console.log(e.target.id);
+    const foundListItem = this.props.listItems.find(item => {
+      return e.target.id == item.id
+    })
+    this.props.toggleCompleted(foundListItem.id)
   }
-
-  // handleChecked = (id) => {
-    //the id for the specific list item will be passed into this function
-    // const value = e.target.type
-    // console.log(this.props.listItems)
-    // if (value === 'checkbox') {
-      // console.log('checked')
-      // this.setState({completed: !this.state.completed})
-  //   }
-  // }
 
   deleteNote = (e) => {
     const { value } = e.target;
@@ -57,7 +51,8 @@ class Card extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  deleteNote: (url, id) => dispatch(deleteNote(url, id))
+  deleteNote: (url, id) => dispatch(deleteNote(url, id)),
+  toggleCompleted: (id) => dispatch(toggleCompleted(id))
 })
 
 export default connect(null, mapDispatchToProps)(Card);
