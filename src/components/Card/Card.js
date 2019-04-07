@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { mapDispatchToProps } from '../../containers/CardContainer/CardContainer';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
 
