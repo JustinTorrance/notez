@@ -26,4 +26,4 @@ export const deleteNoteAction = (id) => ({
 export const toggleCompleted = (id) => ({
   type: 'TOGGLE_COMPLETED',
   id
-})
+});
