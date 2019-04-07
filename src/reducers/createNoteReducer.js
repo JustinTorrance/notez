@@ -5,7 +5,7 @@ export const notesReducer = (state = [], action) => {
     case 'GET_NOTES':
       return action.notes;
     case "DELETE_NOTE":
-    return state.filter(note => note.id != action.id);
+      return state.filter(note => note.id != action.id);
     default: 
       return state;
   }
