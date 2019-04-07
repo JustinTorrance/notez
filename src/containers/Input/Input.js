@@ -4,7 +4,8 @@ class Input extends Component {
   constructor() {
     super()
     this.state = {
-      text: ''
+      text: '',
+      completed: false
     }
   }
 
@@ -18,9 +19,22 @@ class Input extends Component {
     }
   }
 
+  handleChecked = (e) => {
+    const value = e.target.type
+    if (value === 'checkbox') {
+      this.setState({completed: !this.state.completed})
+    }
+  }
+
   render() {
     return (
-      <div >
+      <div>
+        <input
+          name="completed"
+          type="checkbox"
+          checked={this.state.completed}
+          onChange={this.handleChecked}
+        />
         <input
           placeholder='description'
           value={this.state.text}
