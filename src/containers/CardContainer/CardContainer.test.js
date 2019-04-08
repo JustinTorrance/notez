@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CardContainer, mapStateToProps } from './CardContainer';
+import { CardContainer, mapStateToProps, mapDispatchToProps } from './CardContainer';
+jest.mock('../../thunks/fetchNotes')
 
 describe('CardContainer', () => {
   let wrapper;
@@ -48,7 +49,17 @@ describe('CardContainer', () => {
       };
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
-    })
-  })
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch when using a function from mapDispatchToProps', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = fetchNotes('www.mockurl.com');
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.fetchNotes('www.mockurl.com');
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
 
 });
