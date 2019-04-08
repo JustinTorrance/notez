@@ -67,8 +67,8 @@ class Card extends Component {
     return (
       <div className='Card'>
         <h3>{title}</h3>
-        {this.displayNoteText(this.separateCheckedItems())}
         {this.displayNoteText(this.separateUncheckedItems())}
+        {this.displayNoteText(this.separateCheckedItems())}
         <button onClick={this.deleteNote} value={id}>DELETE NOTE</button>
       </div>
     )
