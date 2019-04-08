@@ -23,17 +23,17 @@ describe('App', () => {
     };
     expect(wrapper.debug()).toMatchSnapshot();
   });
-});
-
-describe(mapStateToProps, () => {
-  it('should return a boolean that indicates whether isLoad is true or false', () => {
-    const mockState = {
-      isLoading: false
-    }
-    const expected = {
-      loading: false
-    }
-    const mappedProps = mapStateToProps(mockState)
-    expect(mappedProps).toEqual(expected)
+  
+  describe(mapStateToProps, () => {
+    it('should return a boolean that indicates whether isLoad is true or false', () => {
+      const mockState = {
+        isLoading: false
+      }
+      const expected = {
+        loading: false
+      }
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
   })
-})
+});
