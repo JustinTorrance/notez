@@ -49,8 +49,8 @@ describe('CardContainer', () => {
       };
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
-    })
-  })
+    });
+  });
 
   describe('mapDispatchToProps', () => {
     it('should call dispatch when using a function from mapDispatchToProps', () => {
@@ -59,7 +59,7 @@ describe('CardContainer', () => {
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.fetchNotes('www.mockurl.com');
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-    })
-  })
+    });
+  });
 
 });
