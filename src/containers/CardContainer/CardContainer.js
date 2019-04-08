@@ -12,9 +12,9 @@ export class CardContainer extends Component {
 
   render() {
 
-    const noteCards = this.props.notes.map(note => {
+    let noteCards = this.props.notes.map(note => {
       return <Card key={note.id} id={note.id} title={note.title} listItems={note.listItems}/>
-    })
+    });
 
     return(
       <div>

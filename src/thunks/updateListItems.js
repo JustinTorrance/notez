@@ -1,10 +1,10 @@
 import { fetchErrored } from '../actions'
 
-export const updateListItems = (url, updatedListItem) => {
+export const updateListItems = (url, updatedNote) => {
   return async (dispatch) => {
     const options = {
       method: "PUT",
-      body: JSON.stringify(updatedListItem),
+      body: JSON.stringify(updatedNote),
       headers: {
         "Content-Type": "application/json"
       }

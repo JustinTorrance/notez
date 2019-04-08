@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
-import { toggleCompleted } from '../../actions';
+// import { toggleCompleted } from '../../actions';
 import { updateListItems } from '../../thunks/updateListItems';
 
 class Card extends Component {
@@ -13,7 +13,7 @@ class Card extends Component {
           <li>
             <input
               type="checkbox"
-              onChange={this.isolateListItemId}
+              onChange={this.checkedListItem}
               id={listItem.id}
             />
             {listItem.text}
@@ -22,29 +22,37 @@ class Card extends Component {
         </div>
       )
     })
-  }
+  };
 
-  isolateListItemId = (e) => {
-    const { id } = this.props;
-    const url = `http://localhost:3001/api/v1/notes/${id}`
+  checkedListItem = (e) => {
     const foundListItem = this.props.listItems.find(item => {
       return e.target.id == item.id
     });
-    this.props.toggleCompleted(foundListItem.id);
-    // ??? are wheere we stopped. Looking for updated listItem
-    // item we are seeking is in createNoteReducer.js line 13
-    this.props.updateListItems(url, ???);
-  }
+    this.updateNote(foundListItem.id)
+  };
+
+  updateNote = (itemId) => {
+    const { id, title, listItems } = this.props;
+    const url = `http://localhost:3001/api/v1/notes/${id}`
+    const updatedListItems = this.props.listItems.map(listItem => {
+      if (listItem.id === itemId) {
+        listItem.completed = !listItem.completed;
+      } else {
+        return listItem
+      }
+    })
+    const object = {id, title, listItems}
+    this.props.updateListItems(url, object);
+  };
 
   deleteNote = (e) => {
     const { value } = e.target;
-    console.log(value)
     const url = `http://localhost:3001/api/v1/notes/${value}`;
     this.props.deleteNote(url, value)
-  }
+  };
 
   render() {
-    const { title, id } = this.props
+    const { title, id, listItems } = this.props
     return (
       <div className='Card'>
         <h3>{title}</h3>
@@ -55,10 +63,13 @@ class Card extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  notes: state.notes
+});
+
 export const mapDispatchToProps = (dispatch) => ({
   deleteNote: (url, id) => dispatch(deleteNote(url, id)),
-  toggleCompleted: (id) => dispatch(toggleCompleted(id)),
   updateListItems: (url, updatedListItem) => dispatch(updateListItems(url, updatedListItem))
-})
+});
 
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
