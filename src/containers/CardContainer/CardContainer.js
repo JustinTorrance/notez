@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchNotes } from '../../thunks/fetchNotes';
 import { connect } from 'react-redux';
 import Card from '../../components/Card/Card';
+import { NavLink } from 'react-router-dom';
 
 export class CardContainer extends Component {
 
@@ -29,6 +30,9 @@ export class CardContainer extends Component {
 
     return(
       <div>
+        <NavLink className='new-note-link' to='/new-note'>
+          <button className='new-note-button'>Create a new note!</button>
+        </NavLink>
         {noteCards}
       </div>
     )

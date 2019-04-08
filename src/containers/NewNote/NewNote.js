@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Input from '../Input/Input';
 import { connect } from 'react-redux';
-import { addNote } from '../../thunks/addNote'
+import { addNote } from '../../thunks/addNote';
+import { NavLink } from 'react-router-dom';
 
 export class NewNote extends Component {
   constructor() {
@@ -50,6 +51,9 @@ export class NewNote extends Component {
         <Input createNewItem={this.createNewItem} />
         {mappedState}
         <button type="submit" onClick={this.handleSubmit}>Submit</button>
+        <NavLink className='route-to-home-link' to='/'>
+          <button className='route-to-home-button'>Return to your notes</button>
+        </NavLink>
       </form>
     )
   }
