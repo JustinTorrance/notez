@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CardContainer } from './CardContainer';
+import { CardContainer, mapStateToProps } from './CardContainer';
 
 describe('CardContainer', () => {
   let wrapper;
@@ -36,4 +36,19 @@ describe('CardContainer', () => {
   it('should match the snapshot', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
+
+  describe('mapStateToProps', () => {
+    it('should return an array of notes', () => {
+      const mockState = {
+        notes: mockNotes,
+        loading: false
+      };
+      const expected =  {
+        notes: mockNotes
+      };
+      const mappedProps = mapStateToProps(mockState);
+      expect(mappedProps).toEqual(expected);
+    })
+  })
+
 });
