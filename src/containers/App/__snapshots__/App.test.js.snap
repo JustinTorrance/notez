@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot 1`] = `
+"<div className=\\"App\\">
+  <h1>
+    Notez!
+  </h1>
+  <Route exact={true} path=\\"/\\" component={[Function: Connect]} />
+  <Route exact={true} path=\\"/new-note\\" component={[Function: Connect]} />
+</div>"
+`;
+
+exports[`App should match the snapshot if loading is true 1`] = `
+"<div className=\\"App\\">
+  <h1>
+    Notez!
+  </h1>
+  <Route exact={true} path=\\"/\\" component={[Function: Connect]} />
+  <Route exact={true} path=\\"/new-note\\" component={[Function: Connect]} />
+</div>"
+`;
