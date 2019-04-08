@@ -6,14 +6,25 @@ import Card from '../../components/Card/Card';
 export class CardContainer extends Component {
 
   componentDidMount() {
+    this.retrieveNotes();
+  }
+
+  retrieveNotes = () => {
     const url = 'http://localhost:3001/api/v1/notes';
     this.props.fetchNotes(url);
-  }
+  };
 
   render() {
 
     let noteCards = this.props.notes.map(note => {
-      return <Card key={note.id} id={note.id} title={note.title} listItems={note.listItems}/>
+      return (
+        <Card
+          key={note.id}
+          id={note.id}
+          title={note.title}
+          listItems={note.listItems}
+          retrieveNotes={this.retrieveNotes}
+        />)
     });
 
     return(

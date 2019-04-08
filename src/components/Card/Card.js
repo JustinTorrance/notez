@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
-// import { toggleCompleted } from '../../actions';
 import { updateListItems } from '../../thunks/updateListItems';
 
 class Card extends Component {
-  
-  displayNoteText = () => {
-    return this.props.listItems.map(listItem => {
+
+  separateCheckedItems = () => {
+    return this.props.listItems.filter(listItem => {
+      return listItem.completed;
+    });
+  }
+
+    separateUncheckedItems = () => {
+      return this.props.listItems.filter(listItem => {
+        return !listItem.completed;
+      });
+    }
+
+  displayNoteText = (sortedListItems) => {
+    return sortedListItems.map(listItem => {
       return (
         <div>
           <li>
@@ -28,19 +39,19 @@ class Card extends Component {
     const foundListItem = this.props.listItems.find(item => {
       return e.target.id == item.id
     });
-    this.updateNote(foundListItem.id)
+    this.updateNote(foundListItem.id);
   };
 
   updateNote = (itemId) => {
     const { id, title, listItems } = this.props;
-    const url = `http://localhost:3001/api/v1/notes/${id}`
+    const url = `http://localhost:3001/api/v1/notes/${id}`;
     const updatedListItems = this.props.listItems.map(listItem => {
       if (listItem.id === itemId) {
         listItem.completed = !listItem.completed;
       } else {
         return listItem
       }
-    })
+    });
     const object = {id, title, listItems}
     this.props.updateListItems(url, object);
   };
@@ -56,7 +67,8 @@ class Card extends Component {
     return (
       <div className='Card'>
         <h3>{title}</h3>
-        {this.displayNoteText()}
+        {this.displayNoteText(this.separateCheckedItems())}
+        {this.displayNoteText(this.separateUncheckedItems())}
         <button onClick={this.deleteNote} value={id}>DELETE NOTE</button>
       </div>
     )
