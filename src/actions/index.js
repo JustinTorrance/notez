@@ -21,4 +21,4 @@ export const fetchErrored = (message) => ({
 export const deleteNoteAction = (id) => ({
   type: 'DELETE_NOTE',
   id
-})
+});

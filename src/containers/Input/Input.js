@@ -4,7 +4,8 @@ class Input extends Component {
   constructor() {
     super()
     this.state = {
-      text: ''
+      text: '',
+      completed: false
     }
   }
 
@@ -20,7 +21,7 @@ class Input extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <input
           placeholder='description'
           value={this.state.text}
