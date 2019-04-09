@@ -42,18 +42,22 @@ export class NewNote extends Component {
       return form
     })
     return(
-      <form>
-        <input type="text"
+      <form className='new-note-wrapper'>
+        <input 
+          className='new-note-inputs'
+          type='text'
           placeholder='title'
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
         <Input createNewItem={this.createNewItem} />
         {mappedState}
-        <button type="submit" onClick={this.handleSubmit}>Submit</button>
-        <NavLink className='route-to-home-link' to='/'>
-          <button className='route-to-home-button'>Return to your notes</button>
-        </NavLink>
+        <div className='new-note-button-wrapper'>
+          <NavLink className='route-to-home-link' to='/'>
+            <button className='route-to-home-button'>Return to your notes</button>
+          </NavLink>
+          <button className='new-note-submit-button'type='submit' onClick={this.handleSubmit}>Submit</button>
+        </div>
       </form>
     )
   }

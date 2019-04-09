@@ -29,12 +29,16 @@ export class CardContainer extends Component {
     });
 
     return(
-      <div className='CardContainer'>
-        <NavLink className='new-note-link' to='/new-note'>
-          <button className='new-note-button'>Create a new note!</button>
-        </NavLink>
-        {noteCards}
-      </div>
+      <section>
+        <div className='new-note-button-wrapper'>
+            <NavLink className='new-note-link' to='/new-note'>
+              <button className='new-note-button'>Create a new note!</button>
+            </NavLink>
+          </div>
+        <div className='CardContainer'>
+          {noteCards}
+        </div>
+      </section>
     )
   }
 }

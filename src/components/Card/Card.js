@@ -23,6 +23,7 @@ class Card extends Component {
         <div className='note-list'>
             <li className='list-items'>
               <input
+                className='checkbox'
                 type='checkbox'
                 onChange={this.checkedListItem}
                 id={listItem.id}
@@ -69,8 +70,8 @@ class Card extends Component {
         <h3 className='note-title'>{title}</h3>
         {this.displayNoteText(this.separateUncheckedItems())}
         {this.displayNoteText(this.separateCheckedItems())}
-        <div className='note-delete-button'>
-          <button onClick={this.deleteNote} value={id}>DELETE NOTE</button>
+        <div className='note-delete-button-wrapper'>
+          <button className='note-delete-button' onClick={this.deleteNote} value={id}>DELETE NOTE</button>
         </div>
       </div>
     )

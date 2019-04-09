@@ -1,3 +1,18 @@
 .CardContainer {
+  // display: flex;
+}
+
+.new-note-button-wrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.new-note-button {
+  border-radius: 4px;
+  &:hover {
+    background-color: hotpink;
+    cursor: pointer;
+  }
 }
