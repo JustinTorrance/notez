@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
 import PropTypes from 'prop-types';
+import { toggleCompleted } from '../../actions';
 
 class Card extends Component {
 
@@ -12,44 +13,54 @@ class Card extends Component {
     });
   }
 
-    separateUncheckedItems = () => {
-      return this.props.listItems.filter(listItem => {
-        return !listItem.completed;
-      });
-    }
+  separateUncheckedItems = () => {
+    return this.props.listItems.filter(listItem => {
+      return !listItem.completed;
+    });
+  }
 
   displayNoteText = (sortedListItems) => {
     return sortedListItems.map(listItem => {
       return (
         <div className='note-list'>
-            <li className='list-items' style={{ textDecorationLine: listItem.completed? 'line-through' : 'none' }}>
-              <input
-                className='checkbox'
-                type='checkbox'
-                onChange={this.checkedListItem}
-                id={listItem.id}
-              />
-              {listItem.text}
-            </li>
-          <button className='list-item-delete-button'>x</button>
+          <li className='list-items' style={{ textDecorationLine: listItem.completed? 'line-through' : 'none' }}>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onChange={this.checkedListItem}
+              id={listItem.id}
+            />
+            {listItem.text}
+          </li>
+          <button onClick={(e) => this.deleteListItem(e)} id={listItem.id} className='list-item-delete-button'>x</button>
         </div>
       )
     })
   };
+
+  deleteListItem = (e) => {
+    console.log('target', e.target.id)
+    const listItems = this.props.listItems.filter(item => (item.id != e.target.id))
+    const { title, id } = this.props
+    const revisedNote = { title, id, listItems }
+    const url = `http://localhost:3001/api/v1/notes/${id}`;
+    this.props.updateListItems(url, revisedNote)
+  }
 
   checkedListItem = (e) => {
     const foundListItem = this.props.listItems.find(item => {
       return e.target.id == item.id
     });
     this.updateNote(foundListItem.id);
+    this.props.toggleCompleted(e.target.id);
   };
 
   updateNote = (itemId) => {
     const { id, title, listItems } = this.props;
     const url = `http://localhost:3001/api/v1/notes/${id}`;
-    const updatedListItems = this.props.listItems.map(listItem => {
+    this.props.listItems.map(listItem => {
       if (listItem.id === itemId) {
-        listItem.completed = !listItem.completed;
+        return listItem.completed = !listItem.completed;
       } else {
         return listItem
       }
@@ -94,7 +105,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   deleteNote: (url, id) => dispatch(deleteNote(url, id)),
-  updateListItems: (url, updatedListItem) => dispatch(updateListItems(url, updatedListItem))
+  updateListItems: (url, updatedListItem) => dispatch(updateListItems(url, updatedListItem)),
+  toggleCompleted: (id) => dispatch(toggleCompleted(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
