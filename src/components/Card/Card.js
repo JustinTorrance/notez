@@ -12,11 +12,11 @@ class Card extends Component {
     });
   }
 
-    separateUncheckedItems = () => {
-      return this.props.listItems.filter(listItem => {
-        return !listItem.completed;
-      });
-    }
+  separateUncheckedItems = () => {
+    return this.props.listItems.filter(listItem => {
+      return !listItem.completed;
+    });
+  }
 
   displayNoteText = (sortedListItems) => {
     return sortedListItems.map(listItem => {
