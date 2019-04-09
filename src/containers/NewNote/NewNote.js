@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Input from '../Input/Input';
 import { connect } from 'react-redux';
-import { addNote } from '../../thunks/addNote'
+import { addNote } from '../../thunks/addNote';
+import PropTypes from 'prop-types';
 
 export class NewNote extends Component {
   constructor() {
@@ -53,6 +54,10 @@ export class NewNote extends Component {
       </form>
     )
   }
+}
+
+NewNote.propTypes = {
+  addNote: PropTypes.func.isRequired
 }
 
 export const mapDispatchToProps = (dispatch) => ({

@@ -71,8 +71,6 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   listItems: PropTypes.array.isRequired
-
-
 };
 
 export const mapStateToProps = (state) => ({
