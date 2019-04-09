@@ -4,6 +4,7 @@ import Loading from '../../components/Loading/Loading';
 import { Route } from 'react-router-dom';
 import CardContainer from '../CardContainer/CardContainer';
 import NewNote from '../NewNote/NewNote';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
 
@@ -18,6 +19,10 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  loading: PropTypes.bool.isRequired
+};
 
 export const mapStateToProps = (state) => ({
   loading: state.isLoading,
