@@ -41,6 +41,19 @@ describe('notesReducer', () => {
     expect(result).toEqual(updatedState);
   });
 
+  it('should return updated state when a listItem is completed', () => {
+    const state = [
+      { id: '1', title: 'title', listItems: [{ id: 'z', text: 'text', completed: false }, { id: 'y', text: 'text', completed: false }] }
+    ];
+    const updatedState = [
+      { id: '1', title: 'title', listItems: [{ id: 'z', text: 'text', completed: true }, { id: 'y', text: 'text', completed: false }] }
+    ];
+    const id = 'z';
+    const action = actions.toggleCompleted(id);
+    const result = notesReducer(state, action);
+    expect(result).toEqual(updatedState);
+  });
+
   it('should return updated state when listItem is deleted', () => {
     state = [
       { id: '1', title: 'title', listItems: [{ id: 'z', text: 'text'}, { id: 'y', text: 'text'}] },
