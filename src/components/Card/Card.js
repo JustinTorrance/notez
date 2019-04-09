@@ -47,9 +47,9 @@ class Card extends Component {
   updateNote = (itemId) => {
     const { id, title, listItems } = this.props;
     const url = `http://localhost:3001/api/v1/notes/${id}`;
-    const updatedListItems = this.props.listItems.map(listItem => {
+    this.props.listItems.map(listItem => {
       if (listItem.id === itemId) {
-        listItem.completed = !listItem.completed;
+        return listItem.completed = !listItem.completed;
       } else {
         return listItem
       }
