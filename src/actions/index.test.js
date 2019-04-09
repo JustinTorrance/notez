@@ -20,4 +20,13 @@ describe('actions', () => {
     const result = actions.getNotes(notes)
     expect(result).toEqual(expected)
   })
+
+  it('should return a type of IS_LOADING with boolean', () => {
+    const expected = {
+      type: 'IS_LOADING',
+      isLoading: false
+    }
+    const result = actions.isLoading(false)
+    expect(result).toEqual(expected)
+  })
 })
