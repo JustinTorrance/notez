@@ -1,0 +1,26 @@
+.Card {
+  border: 1px solid grey;
+  min-width: 200px;
+  margin: 1.5rem;
+  border-radius: 4px;
+  box-shadow: 1px 2px 6px grey;
+}
+
+.note-title {
+  padding-left: 1rem; 
+}
+
+.note-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1rem;
+}
+
+.note-delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+

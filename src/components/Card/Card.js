@@ -20,16 +20,16 @@ class Card extends Component {
   displayNoteText = (sortedListItems) => {
     return sortedListItems.map(listItem => {
       return (
-        <div>
-          <li>
-            <input
-              type="checkbox"
-              onChange={this.checkedListItem}
-              id={listItem.id}
-            />
-            {listItem.text}
-          </li>
-          <button>DELETE LIST-ITEM</button>
+        <div className='note-list'>
+            <li className='list-items'>
+              <input
+                type='checkbox'
+                onChange={this.checkedListItem}
+                id={listItem.id}
+              />
+              {listItem.text}
+            </li>
+          <button className='list-item-delete-button'>x</button>
         </div>
       )
     })
@@ -66,10 +66,12 @@ class Card extends Component {
     const { title, id, listItems } = this.props
     return (
       <div className='Card'>
-        <h3>{title}</h3>
+        <h3 className='note-title'>{title}</h3>
         {this.displayNoteText(this.separateUncheckedItems())}
         {this.displayNoteText(this.separateCheckedItems())}
-        <button onClick={this.deleteNote} value={id}>DELETE NOTE</button>
+        <div className='note-delete-button'>
+          <button onClick={this.deleteNote} value={id}>DELETE NOTE</button>
+        </div>
       </div>
     )
   }
