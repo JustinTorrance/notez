@@ -39,7 +39,7 @@ class Card extends Component {
   };
 
   deleteListItem = (e) => {
-    const listItems = this.props.listItems.filter(item => (parseInt(item.id) !== parseInt(e.target.id)));
+    const listItems = this.props.listItems.filter(item => (item.id != e.target.id));
     const { title, id } = this.props;
     const revisedNote = { title, id, listItems };
     const url = `http://localhost:3001/api/v1/notes/${id}`;
@@ -49,7 +49,7 @@ class Card extends Component {
 
   checkedListItem = (e) => {
     const foundListItem = this.props.listItems.find(item => {
-      return parseInt(e.target.id) === parseInt(item.id)
+      return e.target.id == item.id
     });
     this.updateNote(foundListItem.id);
     this.props.toggleCompleted(e.target.id);
@@ -59,7 +59,7 @@ class Card extends Component {
     const { id, title, listItems } = this.props;
     const url = `http://localhost:3001/api/v1/notes/${id}`;
     this.props.listItems.map(listItem => {
-      if (listItem.id === itemId) {
+      if (listItem.id == itemId) {
         return listItem.completed = !listItem.completed;
       } else {
         return listItem

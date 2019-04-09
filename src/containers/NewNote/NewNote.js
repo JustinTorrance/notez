@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { addNote } from '../../thunks/addNote';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import shortid from 'shortid';
 
 export class NewNote extends Component {
   constructor() {
@@ -17,8 +16,8 @@ export class NewNote extends Component {
   }
 
   createNewItem = (text) => {
-    const newListItem = { id: shortid.generate(), text, completed: false }
-    const newInput =  <Input key={shortid.generate()} createNewItem={this.createNewItem} />
+    const newListItem = { id: Date.now(), text, completed: false }
+    const newInput =  <Input key={Date.now()} createNewItem={this.createNewItem} />
     const listItems = [...this.state.listItems, newListItem]
     const inputs = [...this.state.inputs, newInput]
     this.setState({ listItems, inputs })
