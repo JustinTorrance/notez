@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
+import PropTypes from 'prop-types';
 
 class Card extends Component {
 
@@ -77,6 +78,15 @@ class Card extends Component {
     )
   }
 }
+
+Card.propTypes = {
+  notes: PropTypes.array.isRequired,
+  deleteNote: PropTypes.func.isRequired,
+  updateListItems: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  listItems: PropTypes.array.isRequired
+};
 
 export const mapStateToProps = (state) => ({
   notes: state.notes

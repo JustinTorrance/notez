@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Input from '../Input/Input';
 import { connect } from 'react-redux';
 import { addNote } from '../../thunks/addNote';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 export class NewNote extends Component {
@@ -61,6 +62,10 @@ export class NewNote extends Component {
       </form>
     )
   }
+}
+
+NewNote.propTypes = {
+  addNote: PropTypes.func.isRequired
 }
 
 export const mapDispatchToProps = (dispatch) => ({
