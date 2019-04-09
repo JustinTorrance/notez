@@ -31,13 +31,27 @@ describe('notesReducer', () => {
     state = [
       { id: '1', title: 'title', listItems: [{ id: '2', text: 'text'}] },
       { id: '2', title: 'title', listItems: [{ id: '2', text: 'text'}] }
-
   ];
     const updatedState = [
       { id: '2', title: 'title', listItems: [{ id: '2', text: 'text'}] }
-    ]
+    ];
     const id = '1';
     const action = actions.deleteNoteAction(id);
+    const result = notesReducer(state, action);
+    expect(result).toEqual(updatedState);
+  });
+
+  it('should return updated state when listItem is deleted', () => {
+    state = [
+      { id: '1', title: 'title', listItems: [{ id: 'z', text: 'text'}, { id: 'y', text: 'text'}] },
+      { id: '2', title: 'title', listItems: [{ id: 'x', text: 'text'}] }
+    ];
+    const updatedState = [
+      { id: '1', title: 'title', listItems: [{ id: 'z', text: 'text'}] },
+      { id: '2', title: 'title', listItems: [{ id: 'x', text: 'text'}] }
+    ];
+    const id = 'y';
+    const action = actions.deleteListItem(id);
     const result = notesReducer(state, action);
     expect(result).toEqual(updatedState);
   });
