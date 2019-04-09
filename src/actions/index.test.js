@@ -29,4 +29,14 @@ describe('actions', () => {
     const result = actions.isLoading(false)
     expect(result).toEqual(expected)
   })
+
+  it('should return a type of DELETE_NOTE with an id', () => {
+    const id = 4
+    const expected = {
+      type: 'DELETE_NOTE',
+      id,
+    }
+    const result = actions.deleteNoteAction(id)
+    expect(result).toEqual(expected)
+  })
 })
