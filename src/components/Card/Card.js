@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
 import PropTypes from 'prop-types';
+import { toggleCompleted } from '../../actions';
 
 class Card extends Component {
 
@@ -44,20 +45,14 @@ class Card extends Component {
     const revisedNote = { title, id, listItems }
     const url = `http://localhost:3001/api/v1/notes/${id}`;
     this.props.updateListItems(url, revisedNote)
-    
   }
-
-  //line 34 invoke deleteListITem
-  // filter over this.props.listItems
-// return this.props.listItems != e.target.id
-//updateListItems(url, newObject)
-// invoke retrieveNotes 
 
   checkedListItem = (e) => {
     const foundListItem = this.props.listItems.find(item => {
       return e.target.id == item.id
     });
     this.updateNote(foundListItem.id);
+    this.props.toggleCompleted(e.target.id);
   };
 
   updateNote = (itemId) => {
@@ -110,7 +105,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   deleteNote: (url, id) => dispatch(deleteNote(url, id)),
-  updateListItems: (url, updatedListItem) => dispatch(updateListItems(url, updatedListItem))
+  updateListItems: (url, updatedListItem) => dispatch(updateListItems(url, updatedListItem)),
+  toggleCompleted: (id) => dispatch(toggleCompleted(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
