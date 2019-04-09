@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardContainer should match the snapshot 1`] = `
-"<div>
-  <Connect(Card) id=\\"1\\" title=\\"Kim\\\\'s list\\" listItems={{...}} />
-  <Connect(Card) id=\\"2\\" title=\\"Josh\\\\'s list\\" listItems={{...}} />
-  <Connect(Card) id=\\"3\\" title=\\"JT\\\\'s list\\" listItems={{...}} />
-</div>"
+"<section>
+  <div className=\\"new-note-button-wrapper\\">
+    <NavLink className=\\"new-note-link\\" to=\\"/new-note\\">
+      <button className=\\"new-note-button\\">
+        Create a new note!
+      </button>
+    </NavLink>
+  </div>
+  <div className=\\"CardContainer\\">
+    <Connect(Card) id=\\"1\\" title=\\"Kim\\\\'s list\\" listItems={{...}} retrieveNotes={[Function]} />
+    <Connect(Card) id=\\"2\\" title=\\"Josh\\\\'s list\\" listItems={{...}} retrieveNotes={[Function]} />
+    <Connect(Card) id=\\"3\\" title=\\"JT\\\\'s list\\" listItems={{...}} retrieveNotes={[Function]} />
+  </div>
+</section>"
 `;
