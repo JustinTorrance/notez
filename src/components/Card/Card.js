@@ -22,20 +22,36 @@ class Card extends Component {
     return sortedListItems.map(listItem => {
       return (
         <div className='note-list'>
-            <li className='list-items' style={{ textDecorationLine: listItem.completed? 'line-through' : 'none' }}>
-              <input
-                className='checkbox'
-                type='checkbox'
-                onChange={this.checkedListItem}
-                id={listItem.id}
-              />
-              {listItem.text}
-            </li>
-          <button className='list-item-delete-button'>x</button>
+          <li className='list-items' style={{ textDecorationLine: listItem.completed? 'line-through' : 'none' }}>
+            <input
+              className='checkbox'
+              type='checkbox'
+              onChange={this.checkedListItem}
+              id={listItem.id}
+            />
+            {listItem.text}
+          </li>
+          <button onClick={(e) => this.deleteListItem(e)} id={listItem.id} className='list-item-delete-button'>x</button>
         </div>
       )
     })
   };
+
+  deleteListItem = (e) => {
+    console.log('target', e.target.id)
+    const listItems = this.props.listItems.filter(item => (item.id != e.target.id))
+    const { title, id } = this.props
+    const revisedNote = { title, id, listItems }
+    const url = `http://localhost:3001/api/v1/notes/${id}`;
+    this.props.updateListItems(url, revisedNote)
+    
+  }
+
+  //line 34 invoke deleteListITem
+  // filter over this.props.listItems
+// return this.props.listItems != e.target.id
+//updateListItems(url, newObject)
+// invoke retrieveNotes 
 
   checkedListItem = (e) => {
     const foundListItem = this.props.listItems.find(item => {
