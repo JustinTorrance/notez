@@ -22,7 +22,7 @@ class Card extends Component {
     return sortedListItems.map(listItem => {
       return (
         <div className='note-list'>
-            <li className='list-items'>
+            <li className='list-items' style={{ textDecorationLine: listItem.completed? 'line-through' : 'none' }}>
               <input
                 className='checkbox'
                 type='checkbox'
