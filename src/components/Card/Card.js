@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
 import PropTypes from 'prop-types';
-import { toggleCompleted } from '../../actions';
+import { toggleCompleted, deleteListItem } from '../../actions';
 
 class Card extends Component {
 
@@ -22,7 +22,7 @@ class Card extends Component {
   displayNoteText = (sortedListItems) => {
     return sortedListItems.map(listItem => {
       return (
-        <div className='note-list'>
+        <div className='note-list' key={listItem.id}>
           <li className='list-items' style={{ textDecorationLine: listItem.completed? 'line-through' : 'none' }}>
             <input
               className='checkbox'
@@ -39,13 +39,13 @@ class Card extends Component {
   };
 
   deleteListItem = (e) => {
-    console.log('target', e.target.id)
-    const listItems = this.props.listItems.filter(item => (item.id != e.target.id))
-    const { title, id } = this.props
-    const revisedNote = { title, id, listItems }
+    const listItems = this.props.listItems.filter(item => (item.id != e.target.id));
+    const { title, id } = this.props;
+    const revisedNote = { title, id, listItems };
     const url = `http://localhost:3001/api/v1/notes/${id}`;
-    this.props.updateListItems(url, revisedNote)
-  }
+    this.props.deleteListItem(e.target.id);
+    this.props.updateListItems(url, revisedNote);
+  };
 
   checkedListItem = (e) => {
     const foundListItem = this.props.listItems.find(item => {
@@ -59,7 +59,7 @@ class Card extends Component {
     const { id, title, listItems } = this.props;
     const url = `http://localhost:3001/api/v1/notes/${id}`;
     this.props.listItems.map(listItem => {
-      if (listItem.id === itemId) {
+      if (listItem.id == itemId) {
         return listItem.completed = !listItem.completed;
       } else {
         return listItem
@@ -76,7 +76,7 @@ class Card extends Component {
   };
 
   render() {
-    const { title, id, listItems } = this.props
+    const { title, id } = this.props
     return (
       <div className='Card'>
         <h3 className='note-title'>{title}</h3>
@@ -106,7 +106,8 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   deleteNote: (url, id) => dispatch(deleteNote(url, id)),
   updateListItems: (url, updatedListItem) => dispatch(updateListItems(url, updatedListItem)),
-  toggleCompleted: (id) => dispatch(toggleCompleted(id))
+  toggleCompleted: (id) => dispatch(toggleCompleted(id)),
+  deleteListItem: (id) => dispatch(deleteListItem(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
