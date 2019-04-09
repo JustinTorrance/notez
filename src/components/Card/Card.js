@@ -67,7 +67,12 @@ class Card extends Component {
 Card.propTypes = {
   notes: PropTypes.array.isRequired,
   deleteNote: PropTypes.func.isRequired,
-  updateListItems: PropTypes.func.isRequired
+  updateListItems: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  listItems: PropTypes.array.isRequired
+
+
 };
 
 export const mapStateToProps = (state) => ({

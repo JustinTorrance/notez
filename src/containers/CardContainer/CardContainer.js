@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchNotes } from '../../thunks/fetchNotes';
 import { connect } from 'react-redux';
 import Card from '../../components/Card/Card';
+import PropTypes from 'prop-types';
 
 export class CardContainer extends Component {
 
@@ -23,6 +24,11 @@ export class CardContainer extends Component {
     )
   }
 }
+
+CardContainer.propTypes = {
+  notes: PropTypes.array.isRequired,
+  fetchNotes: PropTypes.func.isRequired
+};
 
 export const mapStateToProps = (state) => ({
   notes: state.notes
