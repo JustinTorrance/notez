@@ -13,10 +13,7 @@ export const updateListItems = (url, updatedNote) => {
       const response = await fetch(url, options)
       if (!response.ok) {
         throw new Error(response.statusText)
-      } else {
-        const data = await response.json()
-        return data
-      }
+      } 
     } catch(error) {
       dispatch(fetchErrored(error.message))
     }

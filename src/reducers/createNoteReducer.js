@@ -17,7 +17,15 @@ export const notesReducer = (state = [], action) => {
           }
         })
         return note
-      })
+      });
+    case 'DELETE_LIST_ITEM':
+      return state.map((note) => {
+        const updatedListItems = note.listItems.filter((listItem) => {
+          return parseInt(listItem.id) != parseInt(action.id)
+        })
+        note.listItems = updatedListItems
+        return note
+      });
     default: 
       return state;
   }

@@ -15,10 +15,6 @@ export class NewNote extends Component {
     }
   }
 
-//add save button
-//onclick, save button dispatches thunk, passing in title,listItems
-//thunk is post request to backend
-
   createNewItem = (text) => {
     const newListItem = { id: Date.now(), text, completed: false }
     const newInput =  <Input key={Date.now()} createNewItem={this.createNewItem} />
