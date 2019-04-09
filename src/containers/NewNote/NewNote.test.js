@@ -25,6 +25,10 @@ describe('NewNote', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
 
+  it.skip('should create a new item with new text when createNewItem is invoked', () => {
+
+  });
+
   it('should update the title in state', () => {
     expect(wrapper.state()).toEqual(defaultState);
     const mockEvent = { target: { value: 'a new title'} }
@@ -34,6 +38,10 @@ describe('NewNote', () => {
       title: 'a new title',
       listItems: []
     });
+  });
+
+  it.skip('should dispatch addNote with the correct arguments when handleSubmit is invoked', () => {
+
   });
     
   describe('mapDispatchToProps', () => {
