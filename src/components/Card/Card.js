@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteNote } from '../../thunks/deleteNote';
-// import { toggleCompleted } from '../../actions';
 import { updateListItems } from '../../thunks/updateListItems';
 
 class Card extends Component {
-  
-  displayNoteText = () => {
-    return this.props.listItems.map(listItem => {
+
+  separateCheckedItems = () => {
+    return this.props.listItems.filter(listItem => {
+      return listItem.completed;
+    });
+  }
+
+    separateUncheckedItems = () => {
+      return this.props.listItems.filter(listItem => {
+        return !listItem.completed;
+      });
+    }
+
+  displayNoteText = (sortedListItems) => {
+    return sortedListItems.map(listItem => {
       return (
-        <div>
-          <li>
-            <input
-              type="checkbox"
-              onChange={this.checkedListItem}
-              id={listItem.id}
-            />
-            {listItem.text}
-          </li>
-          <button>DELETE LIST-ITEM</button>
+        <div className='note-list'>
+            <li className='list-items'>
+              <input
+                className='checkbox'
+                type='checkbox'
+                onChange={this.checkedListItem}
+                id={listItem.id}
+              />
+              {listItem.text}
+            </li>
+          <button className='list-item-delete-button'>x</button>
         </div>
       )
     })
@@ -28,19 +40,19 @@ class Card extends Component {
     const foundListItem = this.props.listItems.find(item => {
       return e.target.id == item.id
     });
-    this.updateNote(foundListItem.id)
+    this.updateNote(foundListItem.id);
   };
 
   updateNote = (itemId) => {
     const { id, title, listItems } = this.props;
-    const url = `http://localhost:3001/api/v1/notes/${id}`
+    const url = `http://localhost:3001/api/v1/notes/${id}`;
     const updatedListItems = this.props.listItems.map(listItem => {
       if (listItem.id === itemId) {
         listItem.completed = !listItem.completed;
       } else {
         return listItem
       }
-    })
+    });
     const object = {id, title, listItems}
     this.props.updateListItems(url, object);
   };
@@ -55,9 +67,12 @@ class Card extends Component {
     const { title, id, listItems } = this.props
     return (
       <div className='Card'>
-        <h3>{title}</h3>
-        {this.displayNoteText()}
-        <button onClick={this.deleteNote} value={id}>DELETE NOTE</button>
+        <h3 className='note-title'>{title}</h3>
+        {this.displayNoteText(this.separateUncheckedItems())}
+        {this.displayNoteText(this.separateCheckedItems())}
+        <div className='note-delete-button-wrapper'>
+          <button className='note-delete-button' onClick={this.deleteNote} value={id}>DELETE NOTE</button>
+        </div>
       </div>
     )
   }

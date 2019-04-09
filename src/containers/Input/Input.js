@@ -23,6 +23,7 @@ class Input extends Component {
     return (
       <div>
         <input
+          className='new-note-inputs'
           placeholder='description'
           value={this.state.text}
           onChange={this.handleChange}
