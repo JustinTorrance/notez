@@ -21,7 +21,7 @@ export const notesReducer = (state = [], action) => {
     case 'DELETE_LIST_ITEM':
       return state.map((note) => {
         const updatedListItems = note.listItems.filter((listItem) => {
-          return parseInt(listItem.id) != parseInt(action.id)
+          return parseInt(listItem.id) !== parseInt(action.id)
         })
         note.listItems = updatedListItems
         return note

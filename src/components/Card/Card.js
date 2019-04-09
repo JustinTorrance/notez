@@ -39,7 +39,7 @@ class Card extends Component {
   };
 
   deleteListItem = (e) => {
-    const listItems = this.props.listItems.filter(item => (parseInt(item.id) != parseInt(e.target.id)));
+    const listItems = this.props.listItems.filter(item => (parseInt(item.id) !== parseInt(e.target.id)));
     const { title, id } = this.props;
     const revisedNote = { title, id, listItems };
     const url = `http://localhost:3001/api/v1/notes/${id}`;
