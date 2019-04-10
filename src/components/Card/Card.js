@@ -5,7 +5,7 @@ import { updateListItems } from '../../thunks/updateListItems';
 import PropTypes from 'prop-types';
 import { toggleCompleted, deleteListItem } from '../../actions';
 
-class Card extends Component {
+export class Card extends Component {
 
   separateCheckedItems = () => {
     return this.props.listItems.filter(listItem => {
