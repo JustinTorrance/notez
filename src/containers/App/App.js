@@ -15,6 +15,7 @@ export class App extends Component {
           <h1>Notez!</h1>
         </header>
         {this.props.loading && <Loading />}
+        {this.props.error && <p>{this.props.error}</p>}
         <Route exact path='/' component={CardContainer} />
         <Route exact path='/new-note' component={NewNote} />
       </div>
@@ -23,11 +24,13 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired
 };
 
 export const mapStateToProps = (state) => ({
   loading: state.isLoading,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(App);
