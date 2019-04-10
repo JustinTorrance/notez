@@ -2,6 +2,6 @@
 
 exports[`Input should match the snapshot 1`] = `
 "<div>
-  <input className=\\"new-note-inputs\\" placeholder=\\"description\\" value=\\"\\" onChange={[Function]} onBlur={[Function]} />
+  <input className=\\"new-note-inputs\\" placeholder=\\"description\\" value=\\"\\" onChange={[Function]} onKeyDown={[Function]} />
 </div>"
 `;

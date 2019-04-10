@@ -1,18 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewNote should match the snapshot 1`] = `
-"<form className=\\"new-note-wrapper\\">
+"<form onSubmit={[Function: onSubmit]} className=\\"new-note-wrapper\\">
   <input className=\\"new-note-inputs\\" type=\\"text\\" placeholder=\\"title\\" value=\\"\\" onChange={[Function]} />
   <Input createNewItem={[Function]} />
+  <p className=\\"enter-user-messaging\\">
+    Press enter for a new line
+  </p>
   <div className=\\"new-note-button-wrapper-2\\">
+    <button className=\\"new-note-submit-button\\" type=\\"submit\\" onClick={[Function]}>
+      Submit
+    </button>
     <NavLink className=\\"route-to-home-link\\" to=\\"/\\">
       <button className=\\"route-to-home-button\\">
         Return to your notes
       </button>
     </NavLink>
-    <button className=\\"new-note-submit-button\\" type=\\"submit\\" onClick={[Function]}>
-      Submit
-    </button>
   </div>
 </form>"
 `;
