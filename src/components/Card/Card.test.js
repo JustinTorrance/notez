@@ -89,5 +89,13 @@ describe('deleteNote', () => {
       mappedProps.toggleCompleted(mockId);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
+
+    it('deleteListItem: should call dispatch when using a function from mapDispatchToProps', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = deleteListItem(mockId);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.deleteListItem(mockId);
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
   });
   
