@@ -4,7 +4,14 @@ TrapperKeeper is a Google Keep clone which allows to create and edit their notes
 This project was a week long group project and created by Justin Torrance, [Kim Myers](https://github.com/kimmichurri), and [Joshua Lavarine](https://github.com/jlavar1).
 
 
-INSERT GIPHY HERE
+## Marking items as "completed"
+![checkboxes](https://user-images.githubusercontent.com/40274984/55854163-18d26200-5b21-11e9-8eed-ef6cd8ebaac1.gif)
+
+## Deleting "list-items" and "notes"
+![delete](https://user-images.githubusercontent.com/40274984/55854168-1b34bc00-5b21-11e9-924c-a2884dd0d545.gif)
+
+## Creating a new note
+![newnote](https://user-images.githubusercontent.com/40274984/55854175-1cfe7f80-5b21-11e9-9a93-4242ae3e4f24.gif)
 
 ## Set-up when cloning this repository
 1) mkdir Trapper-Keeper-Main
