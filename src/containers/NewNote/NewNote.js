@@ -49,7 +49,7 @@ export class NewNote extends Component {
         />
         <Input createNewItem={this.createNewItem} />
         {mappedState}
-        <div className='new-note-button-wrapper'>
+        <div className='new-note-button-wrapper-2'>
           <NavLink className='route-to-home-link' to='/'>
             <button className='route-to-home-button'>Return to your notes</button>
           </NavLink>

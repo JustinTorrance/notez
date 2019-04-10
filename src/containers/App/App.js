@@ -25,7 +25,7 @@ export class App extends Component {
 
 App.propTypes = {
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired
+  error: PropTypes.string
 };
 
 export const mapStateToProps = (state) => ({
