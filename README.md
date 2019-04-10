@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Marvel Tracker
+TrapperKeeper is a Google Keep clone which allows to create and edit their notes. When a user visits the home page, their previously created notes are displayed. The individual note-items can be marked as "completed," which will strikethrough the item text and move the item to the bottom of the note. A user may also delete any list-item or entire note. Changes persist upon reload as they are saved on a backend server. 
 
-## Available Scripts
+This project was a week long group project and created by Justin Torrance, [Kim Myers](https://github.com/kimmichurri), and [Joshua Lavarine](https://github.com/jlavar1).
 
-In the project directory, you can run:
 
-### `npm start`
+INSERT GIPHY HERE
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Set-up when cloning this repository
+1) mkdir Trapper-Keeper-Main
+### Installing the backend:
+2) In your browser, navigate to https://github.com/kimmichurri/notez-api
+3) Follow repository instructions to download and install the backend
+### Installing the frontend:
+4) cd Trapper-Keeper-Main
+5) git clone git@github.com:JustinTorrance/notez.git
+6) cd notez
+7) npm install
+8) npm start
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Tech / Frameworks Used
+- ReactJS
+- Redux
+- React Router
+- Node.js (backend)
+- Express.js (backend)
+- SASS
+- JSX
+- fetch API
+- localStorage
+- Testing with Enzyme & Jest
 
-### `npm test`
+## What we learned
+We learned how to effectively implement Redux and React-Router into our ReactJS application. Understanding how all parts of Redux (including Actions, Action Creators, Reducers, Dispatch, and State) tie into the Redux store. By successfully implementing Redux, we were able to remove the necessity for "prop drilling." Implementing React-Router enabled us to turn our single page React app into a more robust multi-page application. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Creating a backend was a very interesting aspect of the project as our previous backend projects were pre-built.
 
-### `npm run build`
+## Challenges faced
+Testing the front-end is notoriously difficult and this project did not prove the exception. 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Another challenge faced was understanding the process of Redux and how all the pieces communicate with each other. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## "Wins"
+Overall, we are pleased with the outcome of the project given the time-frame in which we worked (one week). The front-end is 90% tested. While we were not able to implement everything in our GitHub issues, we reached our Minimum Viable Product (M.V.P.). Users can add new notes and delete list-items and entire notes alike. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Implementations
+In future, we would like to expand upon the functionality of the notes. We'd like to implement the ability to edit our notes. 
 
-### `npm run eject`
+## Tools Used
+[VSCode](https://code.visualstudio.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Credits
+http://frontend.turing.io/projects/trapper-keeper.html
