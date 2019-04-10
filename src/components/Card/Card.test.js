@@ -4,15 +4,17 @@ import { shallow } from 'enzyme';
 import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
 import { deleteListItem, toggleCompleted } from '../../actions';
+jest.mock('../../thunks/deleteNote');
+
+
+let wrapper;
+let mockUrl;
+let mockNotes;
+let mockId;
+let mockTitle;
+let mockFunction;
 
 describe('deleteNote', () => {
-  let wrapper;
-  let mockUrl;
-  let mockNotes;
-  let mockId;
-  let mockTitle;
-  let mockFunction;
-
   beforeEach(() => {
     mockUrl = 'www.somenotes.com';
     mockId = '1';
@@ -41,6 +43,7 @@ describe('deleteNote', () => {
   it('should match snapshot', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
+});
 
   describe('mapStateToProps', () => {
     it('should return an array of notes', () => {
@@ -55,4 +58,16 @@ describe('deleteNote', () => {
       expect(mappedProps).toEqual(expected);
     });
   });
-});
+
+  describe('mapDispatchToProps', () => {
+    it('deleteNote: should call dispatch when using a function from mapDispatchToProps', () => {
+      const mockDispatch = jest.fn();
+      mockId = '1';
+      mockUrl = 'www.example.com';
+      const actionToDispatch = deleteNote(mockUrl, mockId);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.deleteNote(mockUrl, mockId);
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+  });
+  
