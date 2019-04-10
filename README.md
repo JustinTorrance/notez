@@ -13,6 +13,10 @@ This project was a week long group project and created by Justin Torrance, [Kim 
 ## Creating a new note
 ![newnote](https://user-images.githubusercontent.com/40274984/55854175-1cfe7f80-5b21-11e9-9a93-4242ae3e4f24.gif)
 
+## Wireframes
+<img width="475" alt="Screen Shot 2019-04-10 at 8 14 51 AM" src="https://user-images.githubusercontent.com/40274984/55886348-c7e65c00-5b68-11e9-8cfe-23ecfd838352.png">
+<img width="476" alt="Screen Shot 2019-04-10 at 8 15 02 AM" src="https://user-images.githubusercontent.com/40274984/55886353-c9b01f80-5b68-11e9-898b-ed1c64660b38.png">
+
 ## Set-up when cloning this repository
 1) mkdir Trapper-Keeper-Main
 ### Installing the backend:
