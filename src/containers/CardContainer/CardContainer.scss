@@ -1,6 +1,5 @@
 .new-note-button-wrapper {
   display: flex;
-  // align-items: center;
   margin: 1rem;
   justify-content: center;
 }
@@ -11,4 +10,11 @@
     background-color: hotpink;
     cursor: pointer;
   }
+}
+
+.CardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
