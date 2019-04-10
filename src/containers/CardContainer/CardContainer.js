@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchNotes } from '../../thunks/fetchNotes';
 import { connect } from 'react-redux';
-import Card from '../../components/Card/Card';
+import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
