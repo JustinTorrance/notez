@@ -12,10 +12,21 @@ describe('Input', () => {
     const wrapper = shallow(<Input />);
     const mockedEvent = {
       target: {
-        value: 'tacos'
+        value: 'walk dog'
       }
     }
     wrapper.instance().handleChange(mockedEvent)
-    expect(wrapper.state('text')).toEqual('tacos')
+    expect(wrapper.state('text')).toEqual('walk dog')
+  })
+
+  it('should use handleBlur to call createNewItem', () => {
+    const wrapper = shallow(<Input createNewItem={jest.fn()} />)
+    const mockedEvent = {
+      target: {
+        value: 'walk dog'
+      }
+    }
+    wrapper.instance().handleBlur(mockedEvent)
+    expect(wrapper.instance().props.createNewItem.hasBeenCalled)
   })
 })
