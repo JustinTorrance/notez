@@ -15,6 +15,7 @@ describe('NewNote', () => {
       title: '',
       listItems: []
     };
+    Date.now = jest.fn().mockImplementation(() => 5)
   });
 
   it('should have proper default state', () => {
@@ -25,8 +26,12 @@ describe('NewNote', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
 
-  it.skip('should create a new item with new text when createNewItem is invoked', () => {
-
+  it('should create listItem with new text when createNewItem is invoked', () => {
+    expect(wrapper.state()).toEqual(defaultState);
+    const text = 'a note';
+    wrapper.instance().createNewItem(text);
+    const mockListItems = [{ id: 5, text, completed: false }];
+    expect(wrapper.state('listItems')).toEqual(mockListItems);
   });
 
   it('should update the title in state', () => {
@@ -40,8 +45,15 @@ describe('NewNote', () => {
     });
   });
 
-  it.skip('should dispatch addNote with the correct arguments when handleSubmit is invoked', () => {
-
+  it('should dispatch addNote with the correct arguments when handleSubmit is invoked', () => {
+    const mockEvent = { preventDefault: jest.fn() };
+    const url = 'http://localhost:3001/api/v1/notes';
+    const currentState = {
+      listItems: [],
+      title: ''
+    }
+    wrapper.instance().handleSubmit(mockEvent);
+    expect(addNote).toHaveBeenCalledWith(url, currentState);
   });
     
   describe('mapDispatchToProps', () => {
