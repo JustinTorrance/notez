@@ -12,12 +12,10 @@ import { fetchNotes } from '../../thunks/fetchNotes';
 export class App extends Component {
 
   componentDidMount() {
-    const url = 'http://localhost:3001/api/v1/notes';
-    this.props.fetchNotes(url);
+    this.props.fetchNotes('http://localhost:3001/api/v1/notes');
   }
   
   render() {
-    console.log(this.props.notes)
     return (
       <div className="App">
         <header>
@@ -31,11 +29,7 @@ export class App extends Component {
           <Route exact path='/:id' render={({match}) => {
             const { id } = match.params
             const displayNote = this.props.notes.find(note => note.id == id) 
-            if(displayNote) {
-              return <Card {...displayNote} />
-            } else {
-              return <BadPath />
-            }
+            return displayNote ? <Card {...displayNote} /> : <BadPath />
           }} 
           />
         </Switch>
