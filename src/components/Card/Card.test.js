@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '../Card/Card';
+import { Card, mapStateToProps, mapDispatchToProps } from '../Card/Card';
 import { shallow } from 'enzyme';
 import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
@@ -38,13 +38,21 @@ describe('deleteNote', () => {
     )
   });
 
-  it.only('should match snapshot', () => {
+  it('should match snapshot', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
 
-  it('should call the deleteNote prop with url and value', () => {
-    wrapper.instance().deleteNote();
-    expect(mockFunction).toHaveBeenCalled()
-    
+  describe('mapStateToProps', () => {
+    it('should return an array of notes', () => {
+      const mockState = {
+        notes: mockNotes,
+        loading: false
+      };
+      const expected =  {
+        notes: mockNotes
+      };
+      const mappedProps = mapStateToProps(mockState);
+      expect(mappedProps).toEqual(expected);
+    });
   });
 });
