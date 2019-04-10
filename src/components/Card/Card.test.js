@@ -5,6 +5,7 @@ import { deleteNote } from '../../thunks/deleteNote';
 import { updateListItems } from '../../thunks/updateListItems';
 import { deleteListItem, toggleCompleted } from '../../actions';
 jest.mock('../../thunks/deleteNote');
+jest.mock('../../thunks/updateListItems');
 
 
 let wrapper;
@@ -60,13 +61,24 @@ describe('deleteNote', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it('deleteNote: should call dispatch when using a function from mapDispatchToProps', () => {
-      const mockDispatch = jest.fn();
+    beforeEach(() => {
       mockId = '1';
       mockUrl = 'www.example.com';
+    })
+
+    it('deleteNote: should call dispatch when using a function from mapDispatchToProps', () => {
+      const mockDispatch = jest.fn();
       const actionToDispatch = deleteNote(mockUrl, mockId);
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.deleteNote(mockUrl, mockId);
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('updateListItems: should call dispatch when using a function from mapDispatchToProps', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = updateListItems(mockUrl, mockId);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.updateListItems(mockUrl, mockId);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
