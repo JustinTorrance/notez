@@ -39,7 +39,7 @@ export class NewNote extends Component {
       return form
     })
     return(
-      <form className='new-note-wrapper'>
+      <form onSubmit={() =>{}} className='new-note-wrapper'>
         <input 
           className='new-note-inputs'
           type='text'
@@ -49,11 +49,12 @@ export class NewNote extends Component {
         />
         <Input createNewItem={this.createNewItem} />
         {mappedState}
+        <p className='enter-user-messaging'>Press enter for a new line</p>
         <div className='new-note-button-wrapper-2'>
+          <button className='new-note-submit-button' type='submit' onClick={this.handleSubmit}>Submit</button>
           <NavLink className='route-to-home-link' to='/'>
             <button className='route-to-home-button'>Return to your notes</button>
           </NavLink>
-          <button className='new-note-submit-button'type='submit' onClick={this.handleSubmit}>Submit</button>
         </div>
       </form>
     )

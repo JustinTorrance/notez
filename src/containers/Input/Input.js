@@ -13,9 +13,10 @@ class Input extends Component {
     this.setState({ text: e.target.value })
   }
 
-  handleBlur = (e) => {
-    if (e.target.value.length > 0) {
-      this.props.createNewItem(this.state.text)
+  handleKeyDown = (e) => {
+    console.log(e.keyCode)
+    if( e.keyCode === 13 && e.target.value.length > 0) {
+      this.props.createNewItem(this.state.text)      
     }
   }
 
@@ -27,7 +28,7 @@ class Input extends Component {
           placeholder='description'
           value={this.state.text}
           onChange={this.handleChange}
-          onBlur={this.handleBlur}
+          onKeyDown={this.handleKeyDown}
         />
       </div>
     );
