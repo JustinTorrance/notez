@@ -51,6 +51,12 @@ describe('deleteNote', () => {
 
     expect(deleteNote).toHaveBeenCalled()
   });
+
+  it('should call the updateNote prop with url and object', () => {    
+    wrapper.instance().updateNote(mockId);
+
+    expect(updateListItems).toHaveBeenCalled()
+  });
 });
 
   describe('mapStateToProps', () => {
