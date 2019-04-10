@@ -44,6 +44,13 @@ describe('deleteNote', () => {
   it('should match snapshot', () => {
     expect(wrapper.debug()).toMatchSnapshot();
   });
+
+  it('should call the deleteNote prop with url and value', () => {
+    const mockEvent = { target: { value: '1'} }
+    wrapper.instance().deleteNote(mockEvent);
+
+    expect(deleteNote).toHaveBeenCalled()
+  });
 });
 
   describe('mapStateToProps', () => {
