@@ -1,4 +1,4 @@
-## Marvel Tracker
+# Trapper-Keeper
 TrapperKeeper is a Google Keep clone which allows to create and edit their notes. When a user visits the home page, their previously created notes are displayed. The individual note-items can be marked as "completed," which will strikethrough the item text and move the item to the bottom of the note. A user may also delete any list-item or entire note. Changes persist upon reload as they are saved on a backend server. 
 
 This project was a week long group project and created by Justin Torrance, [Kim Myers](https://github.com/kimmichurri), and [Joshua Lavarine](https://github.com/jlavar1).
