@@ -49,6 +49,7 @@ export class NewNote extends Component {
         />
         <Input createNewItem={this.createNewItem} />
         {mappedState}
+        <p className='enter-user-messaging'>Press enter for a new line</p>
         <div className='new-note-button-wrapper-2'>
           <button className='new-note-submit-button' type='submit' onClick={this.handleSubmit}>Submit</button>
           <NavLink className='route-to-home-link' to='/'>
