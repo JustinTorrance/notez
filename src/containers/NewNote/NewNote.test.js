@@ -1,8 +1,48 @@
 import { NewNote, mapDispatchToProps } from './NewNote';
 jest.mock('../../thunks/addNote');
+import React from 'react';
+import { shallow } from 'enzyme';
 
 describe('NewNote', () => {
-  const addNote = jest.fn()
+  const addNote = jest.fn();
+  let wrapper;
+  let defaultState;
+
+  beforeEach(() => {
+    wrapper = shallow(<NewNote addNote={addNote} />)
+    defaultState = {
+      inputs: [],
+      title: '',
+      listItems: []
+    };
+  });
+
+  it('should have proper default state', () => {
+    expect(wrapper.state()).toEqual(defaultState);
+  });
+
+  it('should match the snapshot', () => {
+    expect(wrapper.debug()).toMatchSnapshot();
+  });
+
+  it.skip('should create a new item with new text when createNewItem is invoked', () => {
+
+  });
+
+  it('should update the title in state', () => {
+    expect(wrapper.state()).toEqual(defaultState);
+    const mockEvent = { target: { value: 'a new title'} }
+    wrapper.instance().handleTitleChange(mockEvent);
+    expect(wrapper.state()).toEqual({
+      inputs: [],
+      title: 'a new title',
+      listItems: []
+    });
+  });
+
+  it.skip('should dispatch addNote with the correct arguments when handleSubmit is invoked', () => {
+
+  });
     
   describe('mapDispatchToProps', () => {
     it('should call dispatch when using a function from mapDispatchToProps', () => {
