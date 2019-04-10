@@ -4,7 +4,7 @@ exports[`NewNote should match the snapshot 1`] = `
 "<form className=\\"new-note-wrapper\\">
   <input className=\\"new-note-inputs\\" type=\\"text\\" placeholder=\\"title\\" value=\\"\\" onChange={[Function]} />
   <Input createNewItem={[Function]} />
-  <div className=\\"new-note-button-wrapper\\">
+  <div className=\\"new-note-button-wrapper-2\\">
     <NavLink className=\\"route-to-home-link\\" to=\\"/\\">
       <button className=\\"route-to-home-button\\">
         Return to your notes
