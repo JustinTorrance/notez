@@ -1,0 +1,48 @@
+.Card {
+  border: 1px solid #d3d3d3;
+  min-width: 200px;
+  margin: 1.5rem;
+  border-radius: 4px;
+  box-shadow: 1px 2px 6px grey;
+}
+
+.note-title {
+  padding-left: 1rem; 
+}
+
+.note-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1rem;
+}
+
+.note-delete-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.note-delete-button {
+  border-radius: 4px;
+  &:hover {
+    background-color: hotpink;
+    cursor: pointer;
+  }
+}
+
+.checkbox {
+  margin-right: .5rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.list-item-delete-button {
+  border-radius: 4px;
+  &:hover {
+    background-color: hotpink;
+    cursor: pointer;
+  }
+}
